@@ -1,0 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sidrissi <sidrissi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/02 10:44:17 by sidrissi          #+#    #+#             */
+/*   Updated: 2025/12/02 11:07:52 by sidrissi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef SCALARCONVERTER_HPP
+#define SCALARCONVERTER_HPP
+
+#include <iostream>
+
+class	ScalarConverter
+{
+	private:
+		std::string	str;
+	public:
+		~ScalarConverter();
+		ScalarConverter();
+		ScalarConverter(std::string str);
+		ScalarConverter(ScalarConverter const& other);
+		ScalarConverter &operator=(ScalarConverter const& other);
+		static void	convert(std::string str);
+};
+
+#endif
