@@ -17,8 +17,6 @@
 
 class	ScalarConverter
 {
-	private:
-		std::string	str;
 	public:
 		~ScalarConverter();
 		ScalarConverter();
