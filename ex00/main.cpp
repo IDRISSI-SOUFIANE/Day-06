@@ -6,24 +6,21 @@
 /*   By: sidrissi <sidrissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 10:44:28 by sidrissi          #+#    #+#             */
-/*   Updated: 2025/12/02 13:06:11 by sidrissi         ###   ########.fr       */
+/*   Updated: 2025/12/03 12:09:19 by sidrissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
-// double FF ff
-// 42,   2f
-
 int	ft_check(std::string input)
 {
-	int	i;
-	int	countv;
-	int	countf;
+	int	i = 0;
+	int	countv = 0;
+	int	countf = 0;
+	int	countc = 0;
+	int	isOneEle = 0;
+	int	flagSpace = 0;
 
-	countv = 0;
-	countf = 0;
-	i = 0;
 	while (input[i] == ' ')
 		i++;
 	i = 0;
@@ -33,33 +30,43 @@ int	ft_check(std::string input)
 			countv++;
 		else if (input[i] == 'f' || input[i] == 'F')
 			countf++;
+		else if (isalpha(input[i]))
+			countc++;
 		i++;
 	}
 
-	if (countv > 1 || countf > 1)
-		return (printf("-->error\n"), 1);
+	if (countv > 1 || countf > 1 || countc > 1)
+		return (printf("-->error\n"), 1337);
 
 	i = 0;
-	while (input[i] == ' ')
-		i++;
-	
-	while (input[i])
+	if (input.length() == 1)
+		return ((isOneEle = 1), printf("isOneEle\n"), 0);
+	else
 	{
-		if (!isdigit(input[i]) && input[i] != '.'
-			&& input[i] != 'f' && input[i] != 'F')
+		while (input[i])
 		{
-			int j = i;
-			if (input[j] == ' ')
+			if (!isdigit(input[i]))
 			{
-				while (input[j] == ' ')
-					j++;
+				int j = i;
+				if (input[j] == ' ')
+				{
+					flagSpace = 1;
+					while (input[j] == ' ')
+						j++;
+				}
+				if (input[i] != '.' && input[i] != 'f'
+					&& input[i] != 'F' && !isdigit(input[i]))
+					return (std::cout << "^^^^^^^^^^###!!@@error\n" , 1337);
+				if (flagSpace == 1 && j != input.length())
+					return (std::cout << "!!@@error\n" , 1337);
+				if ((input[i] == 'f' || input[i] == 'F') && input[i+1] != '\0')
+					return (std::cout << ">>>###!!@@error\n" , 1337);
+				if (input[input.length() - 1] != '.' && input[input.length() - 1] != 'f'
+					&& input[input.length() - 1] != 'F' && !isdigit(input[input.length() - 1]))
+					return (std::cout << "###!!@@error\n" , 1337);
 			}
-			if (j != input.length())
-				return (std::cout << "!!error\n" , 1);
-			else if (input[i] != ' ')
-				return (std::cout << "!!error\n" , 1);
+			i++;
 		}
-		i++;
 	}
 
 	return (0);
@@ -67,14 +74,17 @@ int	ft_check(std::string input)
 
 int	main(int ac, char **av)
 {
-	if (ac != 2)
-		return (1);
-	if (ft_check(av[1]))
+	if (ac != 2 || av[1][0] == '\0')
+		return (printf("here\n"), 1);
+	if (ft_check(av[1]) == 1337)
 		return ( std::cout << "enter valid input: \n",  1);
 	std::cout << "continue\n";
 
-	// should work with stringstream
+	// I don't know if I should work with stringstream
 }
+
+
+
 
 
 
@@ -82,7 +92,7 @@ int	main(int ac, char **av)
 
 // int	main()
 // {
-// 	float c  =        42.2ff              ;
+// 	float c = '    ';
 
 
 // 	if (isdigit (c))
