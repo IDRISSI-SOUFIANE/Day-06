@@ -6,23 +6,12 @@
 /*   By: sidrissi <sidrissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 10:44:28 by sidrissi          #+#    #+#             */
-/*   Updated: 2025/12/03 12:09:19 by sidrissi         ###   ########.fr       */
+/*   Updated: 2025/12/04 11:50:31 by sidrissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 #include <sstream>
-
-enum	LiteralType
-{
-	CHAR,
-	INT,
-	FLOAT,
-	DOUBLE,
-	SPECIAL_FLOAT,
-	SPECIAL_DOUBLE,
-	INVALID
-};
 
 bool	isSpecialFloat(std::string s)
 {
@@ -34,51 +23,70 @@ bool	isSpecialDouble(std::string s)
 	return (s == "nan" || s == "+inf" || s == "-inf");
 }
 
+bool	isInt(std::string s)
+{
+	size_t	i;
+
+	i = 0;
+	if (s[i] == '+' || s[i] == '-')
+		i++;
+	if (i == s.length())
+		return (false);
+	for (; i < s.length(); i++)
+	{
+		if (!isdigit(s[i]))
+			return (false);
+	}
+	return (true);
+}
+bool	isDouble(std::string s)
+{
+	size_t	i;
+	bool	dot;
+
+	dot = false;
+	i = 0;
+	if (s[i] == '+' || s[i] == '-')
+		i++;
+	if (i == s.length())
+		return (false);
+	for (; i < s.length(); i++)
+	{
+		if (s[i] == '.')
+		{
+			if (dot)
+				return (false);
+			dot = true;
+		}
+		else if (!std::isdigit(s[i]))
+			return (false);
+	}
+	return (dot);
+}
+
+bool	isFloat(std::string s)
+{
+	if (s[s.length() - 1] != 'f' || s[s.length() - 1] != 'F')
+		return (false);
+	std::string fl = s.substr(0, s.length() - 1);
+	return isDouble(fl);
+}
+
+
 LiteralType	detectType(std::string s)
 {
 	if (isSpecialFloat(s))
 		return (SPECIAL_FLOAT);
 	if (isSpecialDouble(s))
 		return (SPECIAL_DOUBLE);
-	if (s.length() == 1 || !std::isdigit(s[0]))
+	if (s.length() == 1 && !std::isdigit(s[0]))
 		return (CHAR);
-	
-	std::istringstream isINT(s);
-	int	intVal;
-	char c;
-
-	// INT
-	if (isINT >> intVal)
-	{
-		if (!(isINT >> c))
-			return INT;
-	}
-
-	//  FLOAT
-	if (s[s.length() - 1] == 'f')
-	{
-		std::string temp = s.substr(0, s.length() - 1);
-		std::istringstream isFLOAT(temp);
-		float fval;
-		if (isFLOAT >> fval)
-		{
-			char leftover;
-			if (!(isFLOAT >> leftover))
-				return FLOAT;
-		}
-	}
-	
-	// double
-	std::istringstream isDOUBLE (s);
-	double dVAL;
-
-	if (isDOUBLE >> dVAL)
-	{
-		char leftover;
-		if (!(isDOUBLE >> leftover))
-			return DOUBLE;
-	}
-
+	if (isInt(s))
+		return (INT);
+	if (isFloat(s))
+		return (FLOAT);
+	if (isDouble(s))
+		return (DOUBLE);
 	return (INVALID);
 }
 
@@ -88,6 +96,7 @@ int	ft_check(std::string input)
 	int	countv = 0;
 	int	countf = 0;
 	int	countc = 0;
+	int	countpm = 0;
 	int	isOneEle = 0;
 	int	flagSpace = 0;
 
@@ -102,10 +111,11 @@ int	ft_check(std::string input)
 			countf++;
 		else if (isalpha(input[i]))
 			countc++;
+		else if (input[i] == '+' || input[i] == '-')
+			countpm++;
 		i++;
 	}
-
-	if (countv > 1 || countf > 1 || countc > 1)
+	if (countv > 1 || countf > 1 || countc > 1 || countpm > 1)
 		return (printf("-->error\n"), 1337);
 
 	i = 0;
@@ -115,7 +125,7 @@ int	ft_check(std::string input)
 	{
 		while (input[i])
 		{
-			if (!isdigit(input[i]))
+			if (!isdigit(input[i]) && input[i] != '+' && input[i] != '-')
 			{
 				int j = i;
 				if (input[j] == ' ')
@@ -148,15 +158,43 @@ int	main(int ac, char **av)
 		return (printf("here\n"), 1);
 	if (ft_check(av[1]) == 1337)
 		return ( std::cout << "enter valid input: \n",  1);
-	
-	if (detectType(av[1]) == INVALID)
-	{
-		return (1337);
-	}
-	std::cout << "continue\n";
 
-	// I don't know if I should work with stringstream
+	ScalarConverter::convert(av[1]);
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

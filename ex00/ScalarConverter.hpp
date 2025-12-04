@@ -6,7 +6,7 @@
 /*   By: sidrissi <sidrissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 10:44:17 by sidrissi          #+#    #+#             */
-/*   Updated: 2025/12/02 11:07:52 by sidrissi         ###   ########.fr       */
+/*   Updated: 2025/12/04 10:41:48 by sidrissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,21 @@
 #define SCALARCONVERTER_HPP
 
 #include <iostream>
+#include <sstream>
+#include <limits>
+
+enum	LiteralType
+{
+	CHAR,
+	INT,
+	FLOAT,
+	DOUBLE,
+	SPECIAL_FLOAT,
+	SPECIAL_DOUBLE,
+	INVALID
+};
+
+LiteralType	detectType(std::string s);
 
 class	ScalarConverter
 {
@@ -23,7 +38,7 @@ class	ScalarConverter
 		ScalarConverter(std::string str);
 		ScalarConverter(ScalarConverter const& other);
 		ScalarConverter &operator=(ScalarConverter const& other);
-		static void	convert(std::string str);
+		static void	convert(std::string s);
 };
 
 #endif
