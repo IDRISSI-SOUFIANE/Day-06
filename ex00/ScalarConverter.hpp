@@ -6,7 +6,7 @@
 /*   By: sidrissi <sidrissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 10:44:17 by sidrissi          #+#    #+#             */
-/*   Updated: 2025/12/04 10:41:48 by sidrissi         ###   ########.fr       */
+/*   Updated: 2025/12/04 11:51:50 by sidrissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,6 @@ class	ScalarConverter
 	public:
 		~ScalarConverter();
 		ScalarConverter();
-		ScalarConverter(std::string str);
-		ScalarConverter(ScalarConverter const& other);
-		ScalarConverter &operator=(ScalarConverter const& other);
 		static void	convert(std::string s);
 };
 

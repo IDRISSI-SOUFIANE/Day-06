@@ -6,7 +6,7 @@
 /*   By: sidrissi <sidrissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 10:44:28 by sidrissi          #+#    #+#             */
-/*   Updated: 2025/12/04 11:50:31 by sidrissi         ###   ########.fr       */
+/*   Updated: 2025/12/04 11:55:33 by sidrissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ bool	isDouble(std::string s)
 
 bool	isFloat(std::string s)
 {
-	if (s[s.length() - 1] != 'f' || s[s.length() - 1] != 'F')
+	if (s[s.length() - 1] != 'f' && s[s.length() - 1] != 'F')
 		return (false);
 	std::string fl = s.substr(0, s.length() - 1);
 	return isDouble(fl);

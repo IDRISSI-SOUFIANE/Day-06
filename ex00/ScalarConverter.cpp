@@ -6,7 +6,7 @@
 /*   By: sidrissi <sidrissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 10:44:24 by sidrissi          #+#    #+#             */
-/*   Updated: 2025/12/04 11:49:44 by sidrissi         ###   ########.fr       */
+/*   Updated: 2025/12/04 11:58:23 by sidrissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	printChar(double value)
 	std::cout << "char: ";
 	if (value != value || value < 0 || value > 127)
 	{
-		std::cout << "imposible: ";
+		std::cout << "impossible: \n";
 		return ;
 	}
 
@@ -43,7 +43,7 @@ void	printInt(double value)
 		|| value > std::numeric_limits<int>::max()
 		|| value < std::numeric_limits<int>::min())
 	{
-		std::cout << "imposible\n";
+		std::cout << "impossible\n";
 		return ;
 	}
 	int i = static_cast<int>(value);
@@ -65,7 +65,7 @@ void	printDouble(double value)
 {
 	std::cout << "double: ";
 	if (value - (int)value == 0)
-		std::cout << value << "0.\n";
+		std::cout << value << ".0\n";
 	else
 		std::cout << value << "\n";
 }
@@ -92,10 +92,11 @@ void ScalarConverter::convert(std::string s)
 		case FLOAT:
 		{
 			std::string fl = s.substr(0, s.length() - 1);
-			std::istringstream ss(s);
+			std::istringstream ss(fl);
 			float temp;
 			ss >> temp;
 			value = temp;
+			break ;
 		}
 		case DOUBLE:
 		{
@@ -118,11 +119,11 @@ void ScalarConverter::convert(std::string s)
 		case SPECIAL_DOUBLE:
 		{
 			if (s == "nan")
-				value = std::numeric_limits<float>::quiet_NaN();
+				value = std::numeric_limits<double>::quiet_NaN();
 			if (s == "+inf")
-				value = std::numeric_limits<float>::infinity();
+				value = std::numeric_limits<double>::infinity();
 			if (s == "-inf")
-				value = -std::numeric_limits<float>::infinity();
+				value = -std::numeric_limits<double>::infinity();
 			break;
 		}
 		default:
