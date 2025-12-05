@@ -6,7 +6,7 @@
 /*   By: sidrissi <sidrissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 10:44:28 by sidrissi          #+#    #+#             */
-/*   Updated: 2025/12/05 09:15:10 by sidrissi         ###   ########.fr       */
+/*   Updated: 2025/12/05 14:53:16 by sidrissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,6 +158,12 @@ int	main(int ac, char **av)
 		return (1);
 	// if (ft_check(av[1]) == 1337)
 		// return ( std::cout << "enter valid input: \n",  1);
+
+	/**
+	 * the float take 4 bytes
+	 * the int take 4 bytes
+	 * string how many bytes reserve??
+	 */
 
 	ScalarConverter::convert(av[1]);
 

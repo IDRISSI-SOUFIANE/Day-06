@@ -6,7 +6,7 @@
 /*   By: sidrissi <sidrissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 10:44:17 by sidrissi          #+#    #+#             */
-/*   Updated: 2025/12/04 11:51:50 by sidrissi         ###   ########.fr       */
+/*   Updated: 2025/12/05 16:25:08 by sidrissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <sstream>
 #include <limits>
+#include <cmath>
 
 enum	LiteralType
 {
@@ -37,5 +38,7 @@ class	ScalarConverter
 		ScalarConverter();
 		static void	convert(std::string s);
 };
-
+bool	isInt(std::string s);
+bool	isFloat(std::string s);
+bool	isDouble(std::string s);
 #endif
