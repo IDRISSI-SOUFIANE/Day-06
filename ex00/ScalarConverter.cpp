@@ -6,7 +6,7 @@
 /*   By: sidrissi <sidrissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 10:44:24 by sidrissi          #+#    #+#             */
-/*   Updated: 2025/12/04 11:58:23 by sidrissi         ###   ########.fr       */
+/*   Updated: 2025/12/05 09:31:05 by sidrissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,7 @@ void	printDouble(double value)
 		std::cout << value << "\n";
 }
 
-
-void ScalarConverter::convert(std::string s)
+void	ScalarConverter::convert(std::string s)
 {
 	LiteralType type = detectType(s);
 
@@ -134,5 +133,4 @@ void ScalarConverter::convert(std::string s)
 	printInt(value);
 	printFloat(value);
 	printDouble(value);
-
 }
