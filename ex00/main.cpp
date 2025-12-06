@@ -6,7 +6,7 @@
 /*   By: sidrissi <sidrissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 10:44:28 by sidrissi          #+#    #+#             */
-/*   Updated: 2025/12/05 14:53:16 by sidrissi         ###   ########.fr       */
+/*   Updated: 2025/12/06 10:18:49 by sidrissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,12 @@ bool	isDouble(std::string s)
 	i = 0;
 	if (s[i] == '+' || s[i] == '-')
 		i++;
+
 	if (i == s.length())
+	{
+		std::cout <<  "here: Double is empty\n";
 		return (false);
+	}
 	for (; i < s.length(); i++)
 	{
 		if (s[i] == '.')
@@ -61,6 +65,7 @@ bool	isDouble(std::string s)
 		else if (!std::isdigit(s[i]))
 			return (false);
 	}
+	// std::cout << "dot: " << dot << "\n";
 	return (dot);
 }
 
