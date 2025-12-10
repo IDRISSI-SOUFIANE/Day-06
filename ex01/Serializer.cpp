@@ -6,7 +6,7 @@
 /*   By: sidrissi <sidrissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 13:41:05 by sidrissi          #+#    #+#             */
-/*   Updated: 2025/12/07 16:10:20 by sidrissi         ###   ########.fr       */
+/*   Updated: 2025/12/10 14:00:36 by sidrissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,11 @@
 
 Serializer::Serializer()
 {
-	// std::cout << "Default";
-
 }
 
 Serializer::Serializer(Serializer const& other)
 {
 	*this = other;
-	// std::cout << "Copy Constructer\n"
 }
 
 Serializer &Serializer::operator=(Serializer const& other)
@@ -33,7 +30,6 @@ Serializer &Serializer::operator=(Serializer const& other)
 
 Serializer::~Serializer()
 {
-	std::cout << "Destructor\n";
 }
 
 uintptr_t Serializer::serialize(Data *ptr)
@@ -46,5 +42,4 @@ Data* 		Serializer::deserialize(uintptr_t raw)
 {
 	return (reinterpret_cast<Data*>(raw));
 }
-
 

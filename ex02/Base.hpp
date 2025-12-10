@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sidrissi <sidrissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/07 11:47:32 by sidrissi          #+#    #+#             */
-/*   Updated: 2025/12/10 12:23:18 by sidrissi         ###   ########.fr       */
+/*   Created: 2025/12/09 09:05:21 by sidrissi          #+#    #+#             */
+/*   Updated: 2025/12/10 13:53:10 by sidrissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	SERIALIZER_HPP
-#define SERIALIZER_HPP
+#ifndef BASE_HPP
+#define BASE_HPP
 
 #include <iostream>
-#include <cstdint>
-#include <string>
-#include "Data.hpp"
+#include "ctime"
+#include "cstdlib"
 
-class	Serializer
+
+class	Base
 {
 	public:
-		// orthodox:
-		Serializer();
-		~Serializer();
-		Serializer(Serializer const& other);
-		Serializer &operator=(Serializer const& other);
-
-		static uintptr_t	serialize(Data *ptr);
-		static	Data* 		deserialize(uintptr_t raw);
+		virtual ~Base();
 };
-
-
 
 #endif

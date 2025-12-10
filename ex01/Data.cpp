@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*   Data.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sidrissi <sidrissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/07 11:47:32 by sidrissi          #+#    #+#             */
-/*   Updated: 2025/12/10 12:23:18 by sidrissi         ###   ########.fr       */
+/*   Created: 2025/12/10 12:20:35 by sidrissi          #+#    #+#             */
+/*   Updated: 2025/12/10 13:29:26 by sidrissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	SERIALIZER_HPP
-#define SERIALIZER_HPP
-
-#include <iostream>
-#include <cstdint>
-#include <string>
 #include "Data.hpp"
 
-class	Serializer
+Data::Data() : id(1337), name("unknown")
+{}
+
+Data::Data(int id, std::string name) : id(id), name(name)
 {
-	public:
-		// orthodox:
-		Serializer();
-		~Serializer();
-		Serializer(Serializer const& other);
-		Serializer &operator=(Serializer const& other);
+	std::cout << "Default Constructer\n";
+}
 
-		static uintptr_t	serialize(Data *ptr);
-		static	Data* 		deserialize(uintptr_t raw);
-};
-
-
-
-#endif
+Data::~Data()
+{
+	std::cout << "Destructer\n";
+}

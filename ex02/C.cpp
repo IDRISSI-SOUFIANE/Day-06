@@ -1,36 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*   C.cpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sidrissi <sidrissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/07 11:47:32 by sidrissi          #+#    #+#             */
-/*   Updated: 2025/12/10 12:23:18 by sidrissi         ###   ########.fr       */
+/*   Created: 2025/12/09 09:11:46 by sidrissi          #+#    #+#             */
+/*   Updated: 2025/12/09 09:11:58 by sidrissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	SERIALIZER_HPP
-#define SERIALIZER_HPP
-
-#include <iostream>
-#include <cstdint>
-#include <string>
-#include "Data.hpp"
-
-class	Serializer
-{
-	public:
-		// orthodox:
-		Serializer();
-		~Serializer();
-		Serializer(Serializer const& other);
-		Serializer &operator=(Serializer const& other);
-
-		static uintptr_t	serialize(Data *ptr);
-		static	Data* 		deserialize(uintptr_t raw);
-};
-
-
-
-#endif
+#include "C.hpp"
