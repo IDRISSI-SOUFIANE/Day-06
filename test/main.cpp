@@ -101,42 +101,63 @@
 #include <cstdint>
 using namespace std;
 
+int main()
+{
+	int* p = new int(65); // hold address
+
+	std::cout << "*p: " << *p << "\n";
+	std::cout << "p: " << p << "\n";
+
+	std::cout << "-----------------------------------------\n";
+
+		// pointer
+		//	|
+		// 	\/
+	uintptr_t newP = reinterpret_cast<uintptr_t>(p);
+	std::cout << "newP: " << newP << "\n";
+
+	std::cout << "-----------------------------------------\n";
+
+	int	*newPP = reinterpret_cast<int *>(newP);
+	std::cout << "newPP: " << newPP << "\n";
+
+	std::cout << "-----------------------------------------\n";
+
+    // cout << "Hex: " << hex << newP << endl;
+    // cout << "dec: " << std::dec << 0x561867cd9320 << endl;
+
+    // cout << hex << 94662820729632 << endl;
+
+	return 0;
+}
+
+
+
 // int main()
 // {
-// 	int* p = new int(65); // hold address
-
-// 	std::cout << "*p: " << *p << "\n";
-// 	std::cout << "p: " << p << "\n";
-
-// 	std::cout << "-----------------------------------------\n";
-
-// 		// pointer
-// 		//	|
-// 		// 	\/
-// 	uintptr_t newP = reinterpret_cast<uintptr_t>(p);
-// 	std::cout << "newP: " << newP << "\n";
-
-// 	std::cout << "-----------------------------------------\n";
-
-// 	int	*newPP = reinterpret_cast<int *>( newP);
-// 	std::cout << "newPP: " << newPP << "\n";
-
-// 	return 0;
+//     cout << std::hex << 140732919274656 << endl;
+//     cout << std::dec << 0x7ffeefa95ca0 << endl;
 // }
+
+
+
+
 
 // int	main()
 // {
-// 	// int x = 65;
+// 	int x = 65;
 // 	// char c = reinterpret_cast<char&>(x);
 
-// 	// unsigned int n = reinterpret_cast<int>(x);
-// 	// std::cout << "n: " << n << std::endl;
+// 	unsigned int n = reinterpret_cast<int>(x);
+// 	std::cout << "n: " << n << std::endl;
 
-// 	// std::cout << sizeof(char&) << std::endl;
+// 	std::cout << sizeof(char&) << std::endl;
 // }
 
-#include <typeinfo>
-#include <iostream>
+
+
+// #include <typeinfo>
+// #include <iostream>
 
 // class	Base
 // {
@@ -195,20 +216,20 @@ using namespace std;
 
 
 
-#include <iostream>
+// #include <iostream>
 
-class Base {
-public:
-    virtual ~Base() {}
-};
+// class Base {
+// public:
+//     virtual ~Base() {}
+// };
 
-class A : public Base {};
+// class A : public Base {};
 
-int main() {
-    Base* p = new A();
+// int main() {
+//     Base* p = new A();
 
-    A* a_ptr = dynamic_cast<A*>(p); // dynamic_cast returns a pointer
-    std::cout << "Value of dynamic_cast<A*>(p): " << a_ptr << "\n";
+//     A* a_ptr = dynamic_cast<A*>(p); // dynamic_cast returns a pointer
+//     std::cout << "Value of dynamic_cast<A*>(p): " << a_ptr << "\n";
 
-    delete p;
-}
+//     delete p;
+// }
