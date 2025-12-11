@@ -95,41 +95,52 @@
 
 // }
 
+
+
+
+
+
+
+
 // CPP program to demonstrate working of
 // reinterpret_cast
 #include <iostream>
 #include <cstdint>
 using namespace std;
 
-int main()
-{
-	int* p = new int(65); // hold address
+// int main()
+// {
+// 	int* p = new int(65); // hold address
 
-	std::cout << "*p: " << *p << "\n";
-	std::cout << "p: " << p << "\n";
+// 	std::cout << "*p: " << *p << "\n";
+// 	std::cout << "p: " << p << "\n";
 
-	std::cout << "-----------------------------------------\n";
+// 	std::cout << "-----------------------------------------\n";
 
-		// pointer
-		//	|
-		// 	\/
-	uintptr_t newP = reinterpret_cast<uintptr_t>(p);
-	std::cout << "newP: " << newP << "\n";
+// 		// pointer
+// 		//	|
+// 		// 	\/
+// 	uintptr_t newP = reinterpret_cast<uintptr_t>(p);
+// 	std::cout << "newP: " << newP << "\n";
 
-	std::cout << "-----------------------------------------\n";
+// 	std::cout << "-----------------------------------------\n";
 
-	int	*newPP = reinterpret_cast<int *>(newP);
-	std::cout << "newPP: " << newPP << "\n";
+// 	int	*newPP = reinterpret_cast<int *>(newP);
+// 	std::cout << "newPP: " << newPP << "\n";
 
-	std::cout << "-----------------------------------------\n";
+// 	std::cout << "-----------------------------------------\n";
 
-    // cout << "Hex: " << hex << newP << endl;
-    // cout << "dec: " << std::dec << 0x561867cd9320 << endl;
+//     // cout << "Hex: " << hex << newP << endl;
+//     // cout << "dec: " << std::dec << 0x561867cd9320 << endl;
 
-    // cout << hex << 94662820729632 << endl;
+//     // cout << hex << 94662820729632 << endl;
 
-	return 0;
-}
+// 	return 0;
+// }
+
+
+
+
 
 
 
@@ -233,3 +244,19 @@ int main()
 
 //     delete p;
 // }
+
+#include <limits>
+#include <cmath>
+
+
+int	main()
+{
+	double value = -std::numeric_limits<double>::infinity();
+
+	std::cout << "value: " << value;
+
+	if ("345" < "8")
+		std::cout << "YES\n";
+		else
+		std::cout << "NO\n";
+}

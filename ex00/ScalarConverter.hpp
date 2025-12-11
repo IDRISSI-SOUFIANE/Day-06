@@ -34,11 +34,14 @@ LiteralType	detectType(std::string s);
 class	ScalarConverter
 {
 	public:
+		/*	ORTHODOX!!	*/
 		~ScalarConverter();
 		ScalarConverter();
 		static void	convert(std::string s);
 };
+
 bool	isInt(std::string s);
 bool	isFloat(std::string s);
 bool	isDouble(std::string s);
+
 #endif
