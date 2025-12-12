@@ -249,14 +249,65 @@ using namespace std;
 #include <cmath>
 
 
+// int	main()
+// {
+// 	double value = -std::numeric_limits<double>::infinity();
+
+// 	std::cout << "value: " << value;
+
+// 	if ("345" < "8")
+// 		std::cout << "YES\n";
+// 		else
+// 		std::cout << "NO\n";
+// }
+
+
+// int	main()
+// {
+// 	int	n = 1337; // 4 bytes --> 4 * 8 = 32
+
+// 	std::cout << "n: " << static_cast<char>(n) << std::endl; // 1byte = 8bits
+// }
+
+
+
+
+class	A
+{
+	private:
+		int	x;
+		std::string s;
+	public:
+		void	SayHello()
+		{
+			std::cout << "Hello World!\n";
+			std::cout << "SayHello(): " << this << "\n";
+		}
+		static void	SayBye()
+		{
+			// std::cout << "SayBye: " << this << "\n";
+			std::cout << "BYE!\n";
+		}
+};
+
+
 int	main()
 {
-	double value = -std::numeric_limits<double>::infinity();
+	// A	obj1;
 
-	std::cout << "value: " << value;
+	// obj1.SayHello();
+	// // obj1.SayBye();
+	// std::cout << "address(ob1): " << &obj1 << "\n";
 
-	if ("345" < "8")
-		std::cout << "YES\n";
-		else
-		std::cout << "NO\n";
+	// std::cout << "-----------------------\n";
+
+	// std::cout << "-----------------------\n";
+
+	// A::SayBye() ;
+
+	std::string str = "hello" ;
+	std::cout << str.length() << std::endl;
+	std::cout << sizeof(A) << std::endl;
+	std::cout << sizeof(std::string) << std::endl;
 }
+

@@ -6,7 +6,7 @@
 /*   By: sidrissi <sidrissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 10:44:28 by sidrissi          #+#    #+#             */
-/*   Updated: 2025/12/06 10:18:49 by sidrissi         ###   ########.fr       */
+/*   Updated: 2025/12/12 11:32:18 by sidrissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,7 @@ int main(int ac, char **av)
  * string how many bytes reserve??
  */
 
+ 
 /*
 stataic cast how its work
 
